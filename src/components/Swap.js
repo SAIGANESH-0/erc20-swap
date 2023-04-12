@@ -131,7 +131,7 @@ function Swap(props) {
     if (txDetails.to && isConnected) {
       sendTransaction();
     }
-  }, [txDetails, isConnected, sendTransaction]);
+  }, [txDetails]);
 
   useEffect(() => {
     messageApi.destroy();
@@ -143,7 +143,7 @@ function Swap(props) {
         duration: 0,
       });
     }
-  }, [isLoading, messageApi]);
+  }, [isLoading]);
 
   useEffect(() => {
     messageApi.destroy();
@@ -160,7 +160,7 @@ function Swap(props) {
         duration: 1.5,
       });
     }
-  }, [isSuccess, messageApi, txDetails.to]);
+  }, [isSuccess]);
 
   const settings = (
     <>
