@@ -125,7 +125,7 @@ function Swap(props) {
 
   useEffect(() => {
     fetchPrices(tokenList[0].address, tokenList[1].address);
-  }, [fetchPrices]);
+  }, []);
 
   useEffect(() => {
     if (txDetails.to && isConnected) {
