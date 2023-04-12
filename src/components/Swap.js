@@ -125,13 +125,13 @@ function Swap(props) {
 
   useEffect(() => {
     fetchPrices(tokenList[0].address, tokenList[1].address);
-  }, []);
+  }, [fetchPrices]);
 
   useEffect(() => {
     if (txDetails.to && isConnected) {
       sendTransaction();
     }
-  }, [txDetails]);
+  }, [txDetails, isConnected, sendTransaction]);
 
   useEffect(() => {
     messageApi.destroy();
@@ -143,7 +143,7 @@ function Swap(props) {
         duration: 0,
       });
     }
-  }, [isLoading]);
+  }, [isLoading, messageApi]);
 
   useEffect(() => {
     messageApi.destroy();
@@ -160,7 +160,7 @@ function Swap(props) {
         duration: 1.5,
       });
     }
-  }, [isSuccess]);
+  }, [isSuccess, messageApi, txDetails.to]);
 
   const settings = (
     <>
